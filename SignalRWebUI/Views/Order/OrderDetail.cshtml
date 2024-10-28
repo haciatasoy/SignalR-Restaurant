@@ -1,0 +1,59 @@
+﻿@model List<ResultOrderDetailDto>
+@{
+	ViewData["Title"] = "OrderDetail";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Sipariş İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Sipariş Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Sipariş ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<a href="/Order/Index/" class="btn btn-primary">Siparişlere Dön</a>
+						<br />
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Ürün</th>
+									<th scope="col">Adet</th>
+									<th scope="col">Birim Fiyat</th>
+									<th scope="col">Toplam Fiyat</th>
+									
+
+
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									count++;
+									<tr>
+										<th>@count</th>
+										<td>@item.Product.ProductName</td>
+										<td>@item.Count</td>
+										<td>@item.UnitPrice</td>
+										<td>@item.TotalPrice</td>
+
+									</tr>
+								}
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
